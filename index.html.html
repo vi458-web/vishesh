@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Response</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your Name</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="generateMessage()">Submit</button>
+
+    <div id="response" class="message"></div>
+
+    <script>
+        function generateMessage() {
+            // Get the name entered by the user
+            var name = document.getElementById("nameInput").value.trim();
+
+            // Check if the input is empty
+            if (name === "") {
+                alert("Please enter your name.");
+                return;
+            }
+
+            // Get the first letter of the name and convert it to uppercase
+            var firstLetter = name.charAt(0).toUpperCase();
+
+            // Set the response based on the first letter of the name
+            var responseMessage;
+
+            if ('A' <= firstLetter && firstLetter <= 'N') {
+                responseMessage = "You are very nice, friend. Tell us which cream you apply.";
+            } else if ('P' <= firstLetter && firstLetter <= 'Z') {
+                responseMessage = "How are you so intelligent? What do you eat? Feed us too.";
+            } else {
+                responseMessage = "Please enter a valid name starting with a letter.";
+            }
+
+            // Display the response message
+            document.getElementById("response").textContent = responseMessage;
+        }
+    </script>
+
+</body>
+</html>
